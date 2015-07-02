@@ -81,6 +81,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\FileSrcToStreamConverter.cs" />
     <Compile Include="IAppSettings.cs" />
     <Compile Include="Controls\AcceptProblemButton.xaml.cs">
       <DependentUpon>AcceptProblemButton.xaml</DependentUpon>
@@ -91,6 +92,7 @@
     <Compile Include="Converters\UnicodeInfoConverter.cs" />
     <Compile Include="Exceptions.cs" />
     <Compile Include="FileNameHelper.cs" />
+    <Compile Include="Managers\FlagLoader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Unclassified\UI\BooleanBoxes.cs" />
     <Compile Include="Unclassified\UI\MenuExtensions.cs" />
@@ -150,8 +152,12 @@
     <Compile Include="ViewModels\TextKeyViewModel.cs" />
     <Compile Include="Converters\TreeNodesConverter.cs" />
     <Compile Include="ViewModels\TreeViewItemViewModel.cs" />
+    <Compile Include="ViewModels\UploadFlagToCultureViewModel.cs" />
     <Compile Include="Views\AboutWindow.xaml.cs">
       <DependentUpon>AboutWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UploadFlagToCultureView.xaml.cs">
+      <DependentUpon>UploadFlagToCultureView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CultureTextView.xaml.cs">
       <DependentUpon>CultureTextView.xaml</DependentUpon>
@@ -203,6 +209,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Unclassified\UI\ProgressSpinner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UploadFlagToCultureView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -8,8 +8,10 @@ using Unclassified.Util;
 
 namespace Unclassified.TxEditor
 {
-	internal class Program
+	public class Program
 	{
+        public static string DefaultOpenningFilePath { get; private set; }
+
 		/// <summary>
 		/// Application entry point.
 		/// </summary>
@@ -21,8 +23,13 @@ namespace Unclassified.TxEditor
 		/// mark all such StaticResource occurences in XAML files as an error.
 		/// </remarks>
 		[STAThread]
-		public static void Main()
+		public static void Main(string[] args)
 		{
+		    if (args != null && args.Any())
+		    {
+		        DefaultOpenningFilePath = args[0];
+		    }
+
 			// Set the image file's build action to "Resource" and "Never copy" for this to work.
 			if (!Debugger.IsAttached)
 			{

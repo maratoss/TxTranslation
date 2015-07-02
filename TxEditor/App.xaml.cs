@@ -120,6 +120,10 @@ namespace Unclassified.TxEditor
 			// Create main window and view model
 			var view = new MainWindow();
 			var viewModel = new MainViewModel();
+		    if (File.Exists(Program.DefaultOpenningFilePath))
+		    {
+                filesToLoad.Add(Program.DefaultOpenningFilePath);
+		    }
 
 			if (filesToLoad.Count == 0 && scanOption.IsSet)
 			{

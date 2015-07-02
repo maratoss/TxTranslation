@@ -60,9 +60,33 @@ namespace Unclassified.TxEditor.Views
 
 			TextKeysTreeView.Focus();
 
+		    foreach (TextKeyViewModel model in TextKeysTreeView.Items.Cast<TextKeyViewModel>())
+		    {
+		        this.ExpandAll(model);
+		    }
+
+
 			// Let all other contents load
 			TaskHelper.WhenLoaded(MainViewModel.Instance.InitCommand.Execute);
 		}
+
+        private void ExpandAll(TextKeyViewModel viewModel)
+        {
+            viewModel.IsExpanded = true;
+            foreach (TreeViewItemViewModel model in viewModel.Children)
+            {
+                this.ExpandAll(model);
+            }
+        }
+
+        private void ExpandAll(TreeViewItemViewModel itemViewModel)
+        {
+            itemViewModel.IsExpanded = true;
+            foreach (TreeViewItemViewModel model in itemViewModel.Children)
+            {
+                this.ExpandAll(model);
+            }
+        }
 
 		private void OnHotKey(HotKey hotKey)
 		{

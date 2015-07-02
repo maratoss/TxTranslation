@@ -30,7 +30,7 @@
 		<KeyBinding Key="D" Modifiers="Control" Command="{Binding DuplicateTextKeyCommand}"/>
 		<KeyBinding Key="N" Modifiers="Control" Command="{Binding NewTextKeyCommand}"/>
 		<KeyBinding Key="O" Modifiers="Control" Command="{Binding LoadFileCommand}"/>
-		<KeyBinding Key="O" Modifiers="Control+Shift" Command="{Binding LoadFolderCommand}"/>
+<!--		<KeyBinding Key="O" Modifiers="Control+Shift" Command="{Binding LoadFolderCommand}"/>-->
 		<KeyBinding Key="S" Modifiers="Control" Command="{Binding SaveCommand}"/>
 		<KeyBinding Key="F12" Command="{Binding GotoDefinitionCommand}"/>
 		<KeyBinding Key="Left" Modifiers="Alt" Command="{Binding NavigateBackCommand}"/>
@@ -80,6 +80,7 @@
 						ToolTipService.ShowOnDisabled="True"
 						Style="{StaticResource ToolButtonStyle}" Focusable="False" CollapsePriority="82"/>
 					<ui:IconButton
+                        Visibility="Collapsed"
 						Command="{Binding LoadFolderCommand}"
 						Content="{Tx:T 'toolbar.file.load folder', Default='Load folder'}" IconSource="/Images/folder_open.png"
 						HotkeyText="{Tx:T 'toolbar.file.load folder.hotkey'}" ExtendedToolTipText="{Tx:T 'toolbar.file.load folder.tooltip'}"
@@ -100,12 +101,14 @@
 						ToolTipService.ShowOnDisabled="True"
 						Style="{StaticResource ToolButtonStyle}" Focusable="False" CollapsePriority="82"/>
 					<ui:IconButton
+                        Visibility="Collapsed"
 						Command="{Binding ImportFileCommand}"
 						Content="{Tx:T 'toolbar.file.import', Default='Import'}" IconSource="/Images/import.png"
 						ExtendedToolTipText="{Tx:T 'toolbar.file.import.tooltip'}"
 						ToolTipService.ShowOnDisabled="True"
 						Style="{StaticResource ToolButtonStyle}" Focusable="False" CollapsePriority="85"/>
 					<ui:IconButton
+                        Visibility="Collapsed"
 						Command="{Binding ExportKeysCommand}"
 						Content="{Tx:T 'toolbar.file.export', Default='Export'}" IconSource="/Images/key_export.png"
 						ExtendedToolTipText="{Tx:T 'toolbar.file.export.tooltip'}"
@@ -119,13 +122,23 @@
 
 				<ContentControl Grid.Row="0" Grid.Column="2" Grid.RowSpan="5" Template="{StaticResource ToolGridLargeSeparator}" Focusable="False"/>
 
-				<ui:IconButton
-					Grid.Row="1" Grid.Column="3" Grid.RowSpan="2" Margin="0,0,3,0"
-					Command="{Binding NewCultureCommand}"
-					Content="{Tx:T 'toolbar.culture.new', Default='New culture'}" IconSource="/Images/globe_create_22.png" Orientation="Vertical"
-					ExtendedToolTipText="{Tx:T 'toolbar.culture.new.tooltip'}"
-					ToolTipService.ShowOnDisabled="True"
-					Style="{StaticResource ToolButtonStyle}" Focusable="False"/>
+                <StackPanel Grid.Row="1" Grid.Column="3" Grid.RowSpan="2">
+                    <ui:IconButton
+			            Margin="0,0,3,0"
+			            Command="{Binding Path=UploadFlagCommand}"
+			            Content="upload flag" IconSource="/Images/globe_create_22.png"
+			            Orientation="Vertical"
+			            ToolTipService.ShowOnDisabled="True"
+			            Style="{StaticResource ToolButtonStyle}" Focusable="False" />
+                    <ui:IconButton
+			            Margin="0,0,3,0"
+			            Command="{Binding NewCultureCommand}"
+			            Content="{Tx:T 'toolbar.culture.new', Default='New culture'}" IconSource="/Images/globe_create_22.png"
+			            Orientation="Vertical"
+			            ExtendedToolTipText="{Tx:T 'toolbar.culture.new.tooltip'}"
+			            ToolTipService.ShowOnDisabled="True"
+			            Style="{StaticResource ToolButtonStyle}" Focusable="False" />
+                </StackPanel>
 				<StackPanel Grid.Row="1" Grid.Column="4" Orientation="Horizontal">
 					<ui:IconButton
 						Command="{Binding DeleteCultureCommand}"
@@ -135,6 +148,7 @@
 						Style="{StaticResource ToolButtonStyle}" Focusable="False" CollapsePriority="70"/>
 					<!-- I18N -->
 					<ui:IconToggleButton
+                        Visibility="Collapsed"
 						x:Name="CultureToolsButton"
 						Content="Tools▾" IconSource="/Images/globe_config.png"
 						ToolTipService.ShowOnDisabled="True"
@@ -163,6 +177,7 @@
 				</StackPanel>
 				<StackPanel Grid.Row="2" Grid.Column="4" Margin="0,1,0,0" Orientation="Horizontal">
 					<ui:IconButton
+                        Visibility="Collapsed"
 						Command="{Binding SetPrimaryCultureCommand}"
 						Content="{Tx:T 'toolbar.culture.set primary', Default='Set primary'}" IconSource="/Images/globe_check_small.png"
 						ExtendedToolTipText="{Tx:T 'toolbar.culture.set primary.tooltip'}"
@@ -191,6 +206,7 @@
 						ToolTipService.ShowOnDisabled="True"
 						Style="{StaticResource ToolButtonStyle}" Focusable="False" CollapsePriority="60"/>
 					<ui:IconButton
+                        Visibility="Collapsed"
 						Command="{Binding TextKeyWizardCommand}"
 						Content="{Tx:T 'toolbar.text key.wizard', Default='Wiz'}" IconSource="/Images/wizard.png"
 						ExtendedToolTipText="{Tx:T 'toolbar.text key.wizard.tooltip'}"
@@ -218,7 +234,7 @@
 
 				<ContentControl Grid.Row="0" Grid.Column="8" Grid.RowSpan="5" Template="{StaticResource ToolGridLargeSeparator}" Focusable="False"/>
 
-				<StackPanel Grid.Row="1" Grid.Column="9" Orientation="Horizontal">
+				<StackPanel Grid.Row="1" Grid.Column="9" Orientation="Horizontal" Visibility="Collapsed">
 					<ui:IconButton
 						Command="{Binding NavigateBackCommand}"
 						Content="{Tx:T 'toolbar.view.back', Default='Back'}" IconSource="/Images/back.png"
@@ -269,7 +285,7 @@
 						</ui:IconToggleButton.Style>
 					</ui:IconToggleButton>
 				</StackPanel>
-				<StackPanel Grid.Row="2" Grid.Column="9" Margin="0,1,0,0" Orientation="Horizontal">
+				<StackPanel Grid.Row="2" Grid.Column="9" Margin="0,1,0,0" Orientation="Horizontal" Visibility="Collapsed">
 					<ui:IconToggleButton
 						Content="{Tx:T 'toolbar.view.monospace', Default='Mono'}" IconSource="/Images/monospace.png"
 						ExtendedToolTipText="{Tx:T 'toolbar.view.monospace.tooltip'}"
@@ -320,7 +336,7 @@
 						</ui:IconToggleButton.Style>
 					</ui:IconToggleButton>
 				</StackPanel>
-				<TextBlock
+				<TextBlock Visibility="Collapsed"
 					Grid.Row="3" Grid.Column="9" Grid.ColumnSpan="1" HorizontalAlignment="Center"
 					Foreground="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" Margin="0,4,0,0"
 					Text="{Tx:T 'toolbar.view', Default='View'}"/>
@@ -388,7 +404,7 @@
 
 				<ContentControl Grid.Row="0" Grid.Column="12" Grid.RowSpan="5" Template="{StaticResource ToolGridLargeSeparator}" Focusable="False"/>
 
-				<StackPanel Grid.Row="1" Grid.Column="13" Orientation="Horizontal">
+                <StackPanel Grid.Row="1" Grid.Column="13" Orientation="Horizontal" Visibility="Collapsed">
 					<ui:IconButton
 						Command="{Binding SettingsCommand}"
 						Content="{Tx:T 'toolbar.app.settings', Default='Settings'}" IconSource="/Images/gear.png"
@@ -396,7 +412,7 @@
 						ToolTipService.ShowOnDisabled="True"
 						Style="{StaticResource ToolButtonStyle}" Focusable="False"/>
 				</StackPanel>
-				<StackPanel Grid.Row="2" Grid.Column="13" Margin="0,1,0,0" Orientation="Horizontal">
+                <StackPanel Grid.Row="2" Grid.Column="13" Margin="0,1,0,0" Orientation="Horizontal" Visibility="Collapsed">
 					<ui:IconButton
 						Command="{Binding AboutCommand}"
 						Content="{Tx:T 'toolbar.app.about', Default='About'}" IconSource="/Images/info.png"
@@ -404,12 +420,14 @@
 						ToolTipService.ShowOnDisabled="True"
 						Style="{StaticResource ToolButtonStyle}" Focusable="False" CollapsePriority="100"/>
 					<ui:IconButton
+                        Visibility="Collapsed"
 						Command="{Binding HelpCommand}"
 						Content="{Tx:T 'toolbar.app.help', Default='Help'}" IconSource="/Images/help.png"
 						ExtendedToolTipText="{Tx:T 'toolbar.app.help.tooltip'}"
 						ToolTipService.ShowOnDisabled="True"
 						Style="{StaticResource ToolButtonStyle}" Focusable="False" CollapsePriority="100"/>
 					<ui:IconButton
+                        Visibility="Collapsed"
 						Command="{Binding LibFolderCommand}"
 						Content="{Tx:T 'toolbar.app.lib folder', Default='Lib folder'}" IconSource="/Images/lib_folder.png"
 						ExtendedToolTipText="{Tx:T 'toolbar.app.lib folder.tooltip'}"
@@ -417,6 +435,7 @@
 						Style="{StaticResource ToolButtonStyle}" Focusable="False" CollapsePriority="100"/>
 				</StackPanel>
 				<TextBlock
+                    Visibility="Collapsed"
 					Grid.Row="3" Grid.Column="13" Grid.ColumnSpan="1" HorizontalAlignment="Center"
 					Foreground="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" Margin="0,4,0,0"
 					Text="{Tx:T 'toolbar.app', Default='Application'}"/>

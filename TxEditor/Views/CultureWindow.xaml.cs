@@ -146,7 +146,7 @@ namespace Unclassified.TxEditor.Views
 			if (InsertSystemKeysCheckBox.IsEnabled && !wasEnabled)
 			{
 				// Pre-check this as soon as it becomes available
-				InsertSystemKeysCheckBox.IsChecked = true;
+				//InsertSystemKeysCheckBox.IsChecked = true;
 			}
 			if (!InsertSystemKeysCheckBox.IsEnabled)
 			{

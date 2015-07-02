@@ -44,7 +44,8 @@
 			MouseDoubleClick="CulturesList_MouseDoubleClick"/>
 
 		<StackPanel Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="0,12,0,0" HorizontalAlignment="Left">
-			<CheckBox Name="InsertSystemKeysCheckBox" VerticalAlignment="Center" Content="{Tx:T 'window.new culture.checkbox.insert system keys', Default='Insert system keys'}"/>
+			<CheckBox Name="InsertSystemKeysCheckBox" VerticalAlignment="Center" Content="{Tx:T 'window.new culture.checkbox.insert system keys', Default='Insert system keys'}"
+                      Visibility="Collapsed" IsChecked="False"/>
 		</StackPanel>
 
 		<StackPanel Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="0,12,0,0" HorizontalAlignment="Right">

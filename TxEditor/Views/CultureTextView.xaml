@@ -59,7 +59,7 @@
 					</Style>
 				</TextBlock.Style>
 			</TextBlock>
-			<StackPanel Grid.Column="2" Orientation="Horizontal">
+			<StackPanel Grid.Column="2" Orientation="Horizontal" Visibility="Collapsed">
 				<StackPanel.Style>
 					<Style TargetType="StackPanel">
 						<Setter Property="Opacity" Value="0.4"/>
