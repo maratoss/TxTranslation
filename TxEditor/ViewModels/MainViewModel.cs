@@ -2610,11 +2610,6 @@ namespace Unclassified.TxEditor.ViewModels
 
             File.Delete(fileName);
             File.Move(fileName + ".tmp", fileName);
-            using (StreamWriter streamWriter = File.AppendText(fileName))
-            {
-                streamWriter.Write(' ');
-                streamWriter.Flush();
-            }
         }
 
         private void WriteToXml(string cultureName, XmlElement xe, bool exporting)
