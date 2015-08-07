@@ -42,15 +42,14 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
-    <RunPostBuildEvent>Always</RunPostBuildEvent>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>Unclassified.TxEditor.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MultiSelectTreeView, Version=1.0.6.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\MultiSelectTreeView.1.0.6\lib\net40\MultiSelectTreeView.dll</HintPath>
+    <Reference Include="MultiSelectTreeView">
+      <HintPath>..\..\..\src\packages\MultiSelectTreeView.1.0.7\lib\net40\MultiSelectTreeView.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -68,9 +67,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\TaskDialog.dll</HintPath>
     </Reference>
-    <Reference Include="Unclassified.FieldLog, Version=1.113.77.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unclassified.FieldLog.1.113.77\lib\net40-client\Unclassified.FieldLog.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Unclassified.FieldLog">
+      <HintPath>..\..\..\src\packages\Unclassified.FieldLog.1.208.64\lib\net40-client\Unclassified.FieldLog.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
@@ -471,12 +469,14 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>"$(SolutionDir)_scripts\bin\NetRevisionTool.exe" /patch "$(ProjectDir)"</PreBuildEvent>
+    <PreBuildEvent>"$(ProjectDir)..\_scripts\bin\NetRevisionTool.exe" /patch "$(ProjectDir)"</PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>"$(SolutionDir)_scripts\bin\NetRevisionTool.exe" /restore "$(ProjectDir)"
-"$(SolutionDir)\_scripts\bin\InsertIcons.exe" "$(TargetPath)" "$(ProjectDir)\Images\TxDocument.ico";"$(ProjectDir)\Images\Tx.ico" &gt;nul
-xcopy "$(TargetDir)*" "d:\Repositories\logmaster\libs\TxEditor" /D/E/C/Y</PostBuildEvent>
+    <PostBuildEvent>"$(ProjectDir)..\_scripts\bin\NetRevisionTool.exe" /restore "$(ProjectDir)"
+"$(ProjectDir)..\_scripts\bin\InsertIcons.exe" "$(TargetPath)" "$(ProjectDir)\Images\TxDocument.ico";"$(ProjectDir)\Images\Tx.ico" &gt;null
+
+copy /Y "$(TargetDir)" "$(SolutionDir)..\libs\TxEditor"
+copy /Y "$(TargetDir)" "$(SolutionDir)LogMaster.Solo\$(OutDir)TxEditor"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
