@@ -49,6 +49,14 @@
   <PropertyGroup>
     <StartupObject>Unclassified.TxEditor.Program</StartupObject>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="MultiSelectTreeView">
       <HintPath>..\..\..\src\packages\MultiSelectTreeView.1.0.7\lib\net40\MultiSelectTreeView.dll</HintPath>
@@ -476,9 +484,7 @@
   <PropertyGroup>
     <PostBuildEvent>"$(ProjectDir)..\_scripts\bin\NetRevisionTool.exe" /restore "$(ProjectDir)"
 "$(ProjectDir)..\_scripts\bin\InsertIcons.exe" "$(TargetPath)" "$(ProjectDir)\Images\TxDocument.ico";"$(ProjectDir)\Images\Tx.ico" &gt;null
-
-copy /Y "$(TargetDir)" "$(SolutionDir)..\libs\TxEditor"
-copy /Y "$(TargetDir)" "$(SolutionDir)LogMaster.Solo\$(OutDir)TxEditor"</PostBuildEvent>
+xcopy "$(TargetDir)." "$(SolutionDir)LogMaster.Solo\$(OutDir)TxEditor" /F /R /Y /I</PostBuildEvent>
   </PropertyGroup>
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
