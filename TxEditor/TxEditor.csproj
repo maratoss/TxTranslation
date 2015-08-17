@@ -58,6 +58,12 @@
   <PropertyGroup>
     <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>LogMaster.Solo_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="MultiSelectTreeView">
       <HintPath>..\..\..\src\packages\MultiSelectTreeView.1.0.7\lib\net40\MultiSelectTreeView.dll</HintPath>
@@ -323,8 +329,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="app.manifest" />
     <EmbeddedResource Include="Dictionary.txd" />
+    <None Include="LogMaster.Solo_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -485,7 +491,7 @@
   <PropertyGroup>
     <PostBuildEvent>"$(ProjectDir)..\_scripts\bin\NetRevisionTool.exe" /restore "$(ProjectDir)"
 "$(ProjectDir)..\_scripts\bin\InsertIcons.exe" "$(TargetPath)" "$(ProjectDir)\Images\TxDocument.ico";"$(ProjectDir)\Images\Tx.ico" &gt;null
-xcopy "$(TargetDir)." "$(SolutionDir)LogMaster.Solo\$(OutDir)TxEditor" /F /R /Y /I</PostBuildEvent>
+xcopy "$(TargetDir)." "$(SolutionDir)LogMaster.Solo\$(OutDir)" /F /R /Y /I</PostBuildEvent>
   </PropertyGroup>
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
