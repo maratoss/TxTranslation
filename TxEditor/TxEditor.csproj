@@ -391,12 +391,6 @@
     <Resource Include="Images\TxDocument.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TxLib\TxLib.csproj">
-      <Project>{DC6BA170-806F-4D6E-9165-401DE852E304}</Project>
-      <Name>TxLib</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\key.png" />
     <Resource Include="Images\textkey_namespace.png" />
     <Resource Include="Images\textkey_segment.png" />
@@ -483,6 +477,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\textkey_namespace_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TxLib\TxLib.csproj">
+      <Project>{dc6ba170-806f-4d6e-9165-401de852e304}</Project>
+      <Name>TxLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
