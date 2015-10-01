@@ -97,7 +97,10 @@ namespace Unclassified.TxEditor.ViewModels
 
         public bool FileModified
         {
-            get { return GetValue<bool>("FileModified"); }
+			get
+			{
+				return GetValue<bool>("FileModified");
+			}
             set
             {
                 if (value && !dateTimeWindow.IsClosed())   // Extension method, accepts null
@@ -123,7 +126,10 @@ namespace Unclassified.TxEditor.ViewModels
 
         public bool ProblemFilterActive
         {
-            get { return GetValue<bool>("ProblemFilterActive"); }
+			get
+			{
+				return GetValue<bool>("ProblemFilterActive");
+			}
             set
             {
                 if (SetValue(BooleanBoxes.Box(value), "ProblemFilterActive"))
@@ -167,7 +173,10 @@ namespace Unclassified.TxEditor.ViewModels
         private double fontScale = 100;
         public double FontScale
         {
-            get { return fontScale; }
+			get
+			{
+				return fontScale;
+			}
             set
             {
                 if (CheckUpdate(value, ref fontScale, "FontScale", "FontSize", "TextFormattingMode"))
@@ -191,7 +200,10 @@ namespace Unclassified.TxEditor.ViewModels
 
         public string StatusText
         {
-            get { return GetValue<string>("StatusText"); }
+			get
+			{
+				return GetValue<string>("StatusText");
+			}
             set
             {
                 if (SetValue(value, "StatusText"))
@@ -203,7 +215,10 @@ namespace Unclassified.TxEditor.ViewModels
 
         public string SelectedCulture
         {
-            get { return GetValue<string>("SelectedCulture"); }
+			get
+			{
+				return GetValue<string>("SelectedCulture");
+			}
             set
             {
                 if (SetValue(value, "SelectedCulture"))
@@ -220,7 +235,10 @@ namespace Unclassified.TxEditor.ViewModels
 
         public string LastSelectedCulture
         {
-            get { return GetValue<string>("LastSelectedCulture"); }
+			get
+			{
+				return GetValue<string>("LastSelectedCulture");
+			}
             set
             {
                 if (SetValue(value, "LastSelectedCulture"))
@@ -238,7 +256,10 @@ namespace Unclassified.TxEditor.ViewModels
 
         public double SuggestionsPanelWidth
         {
-            get { return GetValue<double>("SuggestionsPanelWidth"); }
+			get
+			{
+				return GetValue<double>("SuggestionsPanelWidth");
+			}
             set
             {
                 if (SetValue(value, "SuggestionsPanelWidth"))
@@ -253,7 +274,10 @@ namespace Unclassified.TxEditor.ViewModels
 
         public double SuggestionsPanelHeight
         {
-            get { return GetValue<double>("SuggestionsPanelHeight"); }
+			get
+			{
+				return GetValue<double>("SuggestionsPanelHeight");
+			}
             set
             {
                 if (SetValue(value, "SuggestionsPanelHeight"))
@@ -315,9 +339,7 @@ namespace Unclassified.TxEditor.ViewModels
 
         #endregion Data properties
 
-        #region Commands
-
-        #region Definition and initialisation
+		#region Command definition and initialisation
 
         // Toolbar commands
         // File section
@@ -402,7 +424,7 @@ namespace Unclassified.TxEditor.ViewModels
             ConvertToTextKeyCommand = new DelegateCommand(OnConvertToTextKey, CanConvertToTextKey);
 
             // Other commands
-            CopyTextKeyCommand = new DelegateCommand(OnCopyTextKey);
+			CopyTextKeyCommand = new DelegateCommand(OnCopyTextKey, CanCopyTextKey);
             SelectPreviousTextKeyCommand = new DelegateCommand(OnSelectPreviousTextKey);
             SelectNextTextKeyCommand = new DelegateCommand(OnSelectNextTextKey);
             UploadFlagCommand = new DelegateCommand(
@@ -426,7 +448,7 @@ namespace Unclassified.TxEditor.ViewModels
                 });
         }
 
-        #endregion Definition and initialisation
+		#endregion Command definition and initialisation
 
         #region Toolbar command handlers
 
@@ -1877,6 +1899,11 @@ namespace Unclassified.TxEditor.ViewModels
 
         #region Other command handlers
 
+		private bool CanCopyTextKey()
+		{
+			return selectedTextKeys.Count > 0;
+		}
+
         private void OnCopyTextKey()
         {
             string str = selectedTextKeys
@@ -1897,8 +1924,6 @@ namespace Unclassified.TxEditor.ViewModels
         }
 
         #endregion Other command handlers
-
-        #endregion Commands
 
         #region XML loading methods
 
