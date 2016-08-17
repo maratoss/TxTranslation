@@ -491,8 +491,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <PostBuildEvent>"$(ProjectDir)..\_scripts\bin\NetRevisionTool.exe" /restore "$(ProjectDir)"
-"$(ProjectDir)..\_scripts\bin\InsertIcons.exe" "$(TargetPath)" "$(ProjectDir)\Images\TxDocument.ico";"$(ProjectDir)\Images\Tx.ico" &gt;null
-xcopy "$(TargetDir)." "$(SolutionDir)LogMaster.Solo\$(OutDir)" /F /R /Y /I</PostBuildEvent>
+"$(ProjectDir)..\_scripts\bin\InsertIcons.exe" "$(TargetPath)" "$(ProjectDir)\Images\TxDocument.ico";"$(ProjectDir)\Images\Tx.ico" &gt;null</PostBuildEvent>
   </PropertyGroup>
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
