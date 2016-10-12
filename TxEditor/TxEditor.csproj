@@ -67,7 +67,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MultiSelectTreeView">
-      <HintPath>..\..\..\src\packages\MultiSelectTreeView.1.0.7\lib\net40\MultiSelectTreeView.dll</HintPath>
+      <HintPath>..\..\..\src\Solutions\packages\MultiSelectTreeView.1.0.7\lib\net40\MultiSelectTreeView.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -86,7 +86,7 @@
       <HintPath>lib\TaskDialog.dll</HintPath>
     </Reference>
     <Reference Include="Unclassified.FieldLog">
-      <HintPath>..\..\..\src\packages\Unclassified.FieldLog.1.208.64\lib\net40-client\Unclassified.FieldLog.dll</HintPath>
+      <HintPath>..\..\..\src\Solutions\packages\Unclassified.FieldLog.1.208.64\lib\net40-client\Unclassified.FieldLog.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
