@@ -419,7 +419,24 @@ namespace Unclassified.TxLib
 
 		#region Properties
 
-		/// <summary>
+	    /// <summary>
+	    /// Returns all translation dictionary
+	    /// </summary>
+	    public static Dictionary<string, string[]> Translations
+	    {
+	        get
+	        {
+                var dictionary =
+	                Tx.languages.SelectMany(x => x.Value)
+	                    .Select(x => new { x.Key, Value = x.Value.Select(s => s.Value).First() })
+	                    .GroupBy(x => x.Key)
+	                    .ToDictionary(x => x.Key, x => x.Select(d => d.Value).ToArray());
+	                
+	            return dictionary;
+	        }
+	    }
+
+	    /// <summary>
 		/// Gets or sets a value indicating whether the loaded files should be monitored for
 		/// changes using FileSystemWatcher instances and reloaded automatically. Only files loaded
 		/// after setting this property can be monitored.
