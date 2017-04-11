@@ -66,8 +66,8 @@
     </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MultiSelectTreeView">
-      <HintPath>..\..\..\src\packages\MultiSelectTreeView.1.0.7\lib\net40\MultiSelectTreeView.dll</HintPath>
+    <Reference Include="MultiSelectTreeView, Version=1.0.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\src\packages\MultiSelectTreeView.1.0.9\lib\net40\MultiSelectTreeView.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -85,8 +85,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\TaskDialog.dll</HintPath>
     </Reference>
-    <Reference Include="Unclassified.FieldLog">
-      <HintPath>..\..\..\src\packages\Unclassified.FieldLog.1.208.64\lib\net40-client\Unclassified.FieldLog.dll</HintPath>
+    <Reference Include="Unclassified.FieldLog, Version=1.775.59.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\src\packages\Unclassified.FieldLog.1.775.59\lib\net40-client\Unclassified.FieldLog.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
