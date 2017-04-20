@@ -10,7 +10,13 @@
 
     public class FileSrcToStreamConverter : IValueConverter
     {
-        public static FileSrcToStreamConverter I => new FileSrcToStreamConverter();
+        public static FileSrcToStreamConverter I
+        {
+            get
+            {
+                return new FileSrcToStreamConverter();
+            }
+        }
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
